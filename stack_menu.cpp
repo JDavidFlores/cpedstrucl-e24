@@ -67,6 +67,7 @@ int main()
 	case 3: s -> display();
 			goto MainMenu;
 			break;
+	case 4: exit(1);
 	}
 	return 0;
 }
