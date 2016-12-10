@@ -62,6 +62,7 @@ int main()
 			goto MainMenu;
 			break;
 	case 2: s -> pop();
+			s -> display();
 			goto MainMenu;
 			break;
 	case 3: s -> display();
