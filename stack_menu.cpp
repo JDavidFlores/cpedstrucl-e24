@@ -58,11 +58,10 @@ int main()
 	case 1: cout<<"Enter number: ";
 			cin>>num;
 			s -> push(num);
-			s -> display();
 			goto MainMenu;
 			break;
 	case 2: s -> pop();
-			s -> display();
+			
 			goto MainMenu;
 			break;
 	case 3: s -> display();
