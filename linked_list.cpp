@@ -23,8 +23,8 @@ public:
     int popValue(){
         Node *n = head;
         int ret = n->x;
-
         head = head->next;
+        //cout<<ret;
         delete n;
         return ret;
     }
