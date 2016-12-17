@@ -28,7 +28,15 @@ public:
         delete n;
         return ret;
     }
-
+	void displayValues(){
+	Node *a = head;
+	Node *b = head;
+	while (b){
+	a=b;
+	cout << a -> x << endl;
+	b = a-> next;
+    }
+	}
 private:
     Node *head; 
 };
@@ -61,6 +69,15 @@ int main()
 				break;
 		case 3:exit(1);
 			   break;
+		case 4:	if(flag>0){
+				list.displayValues();
+				break;
+				}
+				else
+				{
+					cout<<"(EMPTY)/n"<<endl;
+				}
+		       break;
 	}
 	}while(choice != 3);
 	
@@ -70,5 +87,6 @@ void mainMenu(){
 	cout<<"[1] Insert into linked list"<<endl;
 	cout<<"[2] Pop"<<endl;
 	cout<<"[3] EXIT"<<endl;
+	cout<<"[4] Display Contents"<<endl;
 	cout<<"Your choice: ";
 }
