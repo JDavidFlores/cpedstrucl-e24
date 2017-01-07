@@ -18,16 +18,20 @@ int count() {
 }
 
 void search(int num) {
+	
   struct node * n;
   int c = 1;
   n = head;
+
   while (n != NULL) {
+  	
     if(n -> data== num)
 	printf("%d Found At Position %d\n", num, c);
 	n = n -> next;
 	c++;
   }
 }
+
 void append(int num) {
   struct node * temp, * right;
   temp = (struct node * ) malloc(sizeof(struct node));
@@ -57,7 +61,7 @@ void addafter(int num, int loc) {
   int i;
   struct node * temp, * left, * right;
   right = head;
-  for (i = 1; i < loc; i++) {
+  for (i = 1; i < loc+1; i++) {
     left = right;
     right = right -> next;
   }
@@ -111,9 +115,6 @@ void insert(int num) {
       append(num);
   }
 }
-
-
-
 void display(struct node * r) {
   r = head;
   if (r == NULL) {
@@ -125,11 +126,35 @@ void display(struct node * r) {
   }
   printf("\n");
 }
-
+void deleteAll(int num){
+  struct node * n;
+  int c = 1;
+  n = head;
+  while (n != NULL) {
+    if(n -> data== num)
+    {
+	n->data = NULL;
+	n = n -> next;
+	c++;
+	}
+	else if(n->data != num)
+	{
+		printf("%d", n->data);
+		n = n -> next;
+		printf(" ");
+	}
+	}
+	printf("\n");
+}
 int main() {
-  int i, num;
+  int i, num, val, loc, tot;
   struct node * n;
   head = NULL;
+  insert(1);
+  insert(4);
+  insert(3);
+  insert(4);
+  insert(4);
   while (1) {
     printf("Linked List Operations\n");
     printf("===============\n");
@@ -139,6 +164,8 @@ int main() {
     printf("4.Delete\n");
     printf("5.Search\n");
     printf("6.Exit\n");
+    printf("7.Add After\n");
+    printf("8.Delete All\n");
     printf("Enter your choice : ");
     if (scanf("%d", & i) <= 0) {
       printf("Enter only an Integer\n");
@@ -179,7 +206,19 @@ int main() {
         	search(num);
         	break;
       case 6: exit(1);
-	  		  break;	
+	  		  break;
+	  case 7: printf("What value to enter: ");
+	  		  scanf("%d", &val);
+	  		  printf("Insert location: ");
+	  		  scanf("%d", &loc);
+	  		  addafter(val, loc);
+	  		  display(n);
+	   case 8: printf("Which number to delete: ");
+	   		   scanf("%d", &num);
+	   			deleteAll(num);
+	   			break;
+	
+	   		  
       }
     }
   }
