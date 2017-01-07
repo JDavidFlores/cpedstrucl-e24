@@ -18,20 +18,16 @@ int count() {
 }
 
 void search(int num) {
-	
   struct node * n;
   int c = 1;
   n = head;
-
   while (n != NULL) {
-  	
     if(n -> data== num)
 	printf("%d Found At Position %d\n", num, c);
 	n = n -> next;
 	c++;
   }
 }
-
 void append(int num) {
   struct node * temp, * right;
   temp = (struct node * ) malloc(sizeof(struct node));
